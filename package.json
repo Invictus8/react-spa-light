@@ -18,7 +18,10 @@
     "url": "https://github.com/Invictus8/react-spa-light/issues"
   },
   "homepage": "https://github.com/Invictus8/react-spa-light#readme",
-  "dependencies": {},
+  "dependencies": {
+    "react": "^16.9.0",
+    "react-dom": "^16.9.0"
+  },
   "devDependencies": {
     "@babel/cli": "^7.5.5",
     "@babel/core": "^7.5.5",

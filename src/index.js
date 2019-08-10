@@ -1,11 +1,11 @@
-const Component = () => {
-    const element = document.createElement('div')
+import React from 'react'
+import ReactDOM from 'react-dom'
 
-    element.innerHTML = 'Hello, World!'
+import Main from './Components/Main'
 
-    return element
-}
-
-document.body.appendChild(Component())
+ReactDOM.render(
+    <Main />,
+    document.querySelector('#root')
+)
 
 module.hot && module.hot.accept()
