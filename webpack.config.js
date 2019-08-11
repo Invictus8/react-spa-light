@@ -28,7 +28,7 @@ module.exports = {
     devServer: {
         contentBase: path.join(__dirname, 'dist'),
         compress: true,
-        open: 'google-chrome',
+        open: true,
         host: 'localhost',
         port: 3000,
         overlay: {
