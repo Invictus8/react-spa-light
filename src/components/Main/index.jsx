@@ -9,7 +9,7 @@ class Main extends React.Component {
 
     handleClick = number => () => {
         const { selectedEmployee } = this.state
-        
+
         this.setState({
             selectedEmployee: selectedEmployee === number ? null : number
         })
