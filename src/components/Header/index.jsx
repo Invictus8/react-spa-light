@@ -1,8 +1,17 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { withRouter } from 'react-router-dom'
+import { ButtonToolbar, Button } from 'react-bootstrap'
 
-export default () => <div>
-    <Link to='/' >Main</Link>
-    <Link to='/add' >Add</Link>
-    <Link to='/settings'>Settings</Link>
-</div>
+const Menu = ({ history: { push } }) => <ButtonToolbar>
+    <Button variant='outline-secondary' size='lg' onClick={() => push('/')}>
+        Main
+    </Button>
+    <Button variant='outline-secondary' size='lg' onClick={() => push('/add')}>
+        Add
+    </Button>
+    <Button variant='outline-secondary' size='lg' onClick={() => push('/settings')}>
+        Settings
+    </Button>
+</ButtonToolbar>
+
+export default withRouter(Menu)

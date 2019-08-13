@@ -1,5 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
+import { ListGroup, Col, Row } from 'react-bootstrap'
 
 class Main extends React.Component {
 
@@ -24,27 +25,34 @@ class Main extends React.Component {
         const employeeFields = selected && Object.entries(selected)
             .filter(([ key ]) => settings[key].visible)
             .map(([ key, value ]) => (
-                <div key={key}>
+                <ListGroup.Item key={key}>
                     {settings[key].label}: {value}
-                </div>
+                </ListGroup.Item>
             ))
 
         return(
             <div>
-                <h1>List of Employees</h1>
-                <ul>
-                    {employees.map(employee =>
-                        <li
-                            key={employee.personnelNumber}
-                            onClick={this.handleClick(employee.personnelNumber)}
-                        >
-                            {employee.lastName} - {employee.position}
-                        </li>
-                    )}
-                </ul>
-                <div>
-                    {employeeFields}
-                </div>
+                <h2>List of Employees</h2>
+                    <Row>
+                        <Col sm>
+                            <ListGroup>
+                                {employees.map(employee =>
+                                    <ListGroup.Item
+                                        action
+                                        key={employee.personnelNumber}
+                                        onClick={this.handleClick(employee.personnelNumber)}
+                                    >
+                                        {employee.lastName} - {employee.position}
+                                    </ListGroup.Item>
+                                )}
+                            </ListGroup>
+                        </Col>
+                        <Col sm>
+                            <ListGroup>
+                                {employeeFields}
+                            </ListGroup>
+                        </Col>
+                    </Row>
             </div>
         )
     }

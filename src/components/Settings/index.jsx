@@ -1,15 +1,15 @@
 import React from 'react'
 import { connect } from 'react-redux'
+import { Form } from 'react-bootstrap'
 
 import { changeSettings } from '../../reducers/settings';
 
 class Settings extends React.Component {
 
-    handleChange = key => event => {
+    handleChange = key => () => {
         const { changeSettings } = this.props
-        const { checked } = event.target
-        console.log(event.target.checked)
-        changeSettings({ key, checked })
+
+        changeSettings(key)
     }
 
     render() {
@@ -17,13 +17,21 @@ class Settings extends React.Component {
 
         return (
             <div>
-                <h1>Settings</h1>
-                {Object.entries(settings).map(([ key, { label, visible } ]) => (
-                    <div key={key}>
-                        <input type='checkbox' checked={visible} onChange={this.handleChange(key)} />
-                        <label>{label}</label>
-                    </div>
-                ))}
+                <h2>Settings</h2>
+                <Form>
+                    {Object.entries(settings).map(([ key, { label, visible } ]) => (
+                        <Form.Group key={key}>
+                            <div onClick={this.handleChange(key)}>
+                                <Form.Check
+                                    custom
+                                    checked={visible}
+                                    readOnly
+                                    label={label}
+                                />
+                            </div>
+                        </Form.Group>
+                    ))}
+                </Form>
             </div>
         )
     }

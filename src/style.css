@@ -1,0 +1,15 @@
+.btn-outline-secondary {
+    margin-top: 1rem;
+}
+.btn-outline-secondary:nth-child(2n) {
+    margin-left: 1rem;
+    margin-right: 1rem;
+}
+.list-group {
+    margin-bottom: 1rem;
+}
+h2 {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+

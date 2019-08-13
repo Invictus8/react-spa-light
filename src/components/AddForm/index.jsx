@@ -2,6 +2,7 @@ import React from 'react'
 import { compose } from 'redux'
 import { connect } from 'react-redux'
 import { withRouter } from 'react-router-dom'
+import { Form, Button, ButtonGroup } from 'react-bootstrap'
 
 import { addEmployee } from '../../reducers/employees'
 
@@ -56,25 +57,25 @@ class AddForm extends React.Component {
 
         return (
             <div>
-                <h1>Add form</h1>
-                <form onSubmit={this.handleSubmit} >
+                <h2>Add form</h2>
+                <Form onSubmit={this.handleSubmit} >
                     {Object.entries(settings).map(([ key, { label } ]) => (
-                        <div key={key}>
-                            <label>{label}</label>
-                            <input
+                        <Form.Group key={key}>
+                            <Form.Label>{label}</Form.Label>
+                            <Form.Control
                                 type='text'
                                 placeholder={label}
                                 value={employee[key]}
                                 onChange={this.handleChange(key)}
                                 required
                             />
-                        </div>
+                        </Form.Group>
                     ))}
-                    <div>
-                        <button type='submit'>Add and add else</button>
-                        <button type='submit' onClick={this.handleClick}>Add and return to Main</button>
-                    </div>
-                </form>
+                    <ButtonGroup>
+                        <Button variant='primary' type='submit'>Add and add else</Button>
+                        <Button variant='secondary' type='submit' onClick={this.handleClick}>Add and return to Main</Button>
+                    </ButtonGroup>
+                </Form>
             </div>
         )
     }

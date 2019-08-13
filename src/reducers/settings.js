@@ -13,9 +13,9 @@ export default (state = initialState, action) => {
     return type === CHANGE_SETTINGS
         ? ({
             ...state,
-            [payload.key]: {
-                ...state[payload.key],
-                visible: payload.checked,
+            [payload]: {
+                ...state[payload],
+                visible: !state[payload].visible,
             },
         })
         : state
