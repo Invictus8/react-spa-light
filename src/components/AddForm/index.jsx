@@ -47,7 +47,6 @@ class AddForm extends React.Component {
         this.setState({
             employee: this.initialEmployeeState,
         })
-        console.log(this.state)
         returnToMain && history.push('/')
     }
 
@@ -87,9 +86,9 @@ export default compose(
             employees: state.employees,
             settings: state.settings,
         }),
-        dispatch => ({
-            addEmployee: employee => dispatch(addEmployee(employee))
-        }),
+        {
+            addEmployee,
+        },
     ),
     withRouter,
 )(AddForm)

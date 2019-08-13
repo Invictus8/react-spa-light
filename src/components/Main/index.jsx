@@ -22,9 +22,10 @@ class Main extends React.Component {
         const selected = employees.find(employee => employee.personnelNumber === selectedEmployee)
 
         const employeeFields = selected && Object.entries(selected)
-            .map(([ label, value ]) => (
-                <div key={label}>
-                    {settings[label].label}: {value}
+            .filter(([ key ]) => settings[key].visible)
+            .map(([ key, value ]) => (
+                <div key={key}>
+                    {settings[key].label}: {value}
                 </div>
             ))
 
